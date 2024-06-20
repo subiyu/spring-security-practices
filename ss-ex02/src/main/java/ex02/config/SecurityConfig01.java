@@ -15,10 +15,9 @@ import org.springframework.util.AntPathMatcher;
 import ex02.filter.MySecurityFilter01;
 import ex02.filter.MySecurityFilter02;
 import ex02.filter.MySecurityFilter03;
-import ex02.filter.MySecurityFilter04;
 
 @Configuration
-public class AppConfig {
+public class SecurityConfig01 {
 	@Bean
 	public FilterChainProxy springSercurityFilterChain() {
 		List<SecurityFilterChain> list = Arrays.asList(
@@ -44,8 +43,7 @@ public class AppConfig {
 				return Arrays.asList(
 						mySeqFilter01(), 
 						mySeqFilter02(), 
-						mySeqFilter03(), 
-						mySeqFilter04()
+						mySeqFilter03()
 					);
 				}
 			}
@@ -69,8 +67,4 @@ public class AppConfig {
 		return new MySecurityFilter03();
 	}
 
-	@Bean
-	public MySecurityFilter04 mySeqFilter04() {
-		return new MySecurityFilter04();
-	}
 }
